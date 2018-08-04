@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Product } from "../../product";
 import { ProductService } from "../../product.service";
+import { MatPaginator, MatTableDataSource } from "../../../../../../node_modules/@angular/material";
 
 @Component({
     selector: 'product-list',
@@ -8,13 +9,19 @@ import { ProductService } from "../../product.service";
     styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-    products: Product[];
-    displayedColumns: string[] = ['Name', 'Description'];
+    displayedColumns: string[] = ['Name', 'Description', 'Actions'];
+    
+    products = new MatTableDataSource<Product>();
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(private productService: ProductService) { }
 
     ngOnInit() {
         this.productService.getAllProducts()
-            .subscribe(data => this.products = data);
+            .subscribe(data => {
+                // this.products = new MatTableDataSource<Product>(data);
+                this.products.data = data;
+                this.products.paginator = this.paginator;
+            });
     }
 }
