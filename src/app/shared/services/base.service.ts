@@ -7,4 +7,8 @@ export class BaseService {
     };
 
     protected api_url = environment.api_url;
+
+    protected stringify(obj:any) {
+        return JSON.stringify(obj);
+    }
 }

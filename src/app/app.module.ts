@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CategoryService } from './shared/services/category.service';
 import { httpInterceptorsProviders } from './shared/interceptors';
+import { ProductModule } from './modules/product.module';
 
 
 
@@ -15,6 +16,7 @@ import { httpInterceptorsProviders } from './shared/interceptors';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ProductModule,
   ],
   providers: [
     CategoryService,

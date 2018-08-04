@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from './shared/services/category.service';
-import { Category } from './shared/services/category';
+import { ProductService } from './modules/product/product.service';
+import { Product } from './modules/product/product';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,14 @@ import { Category } from './shared/services/category';
 })
 export class AppComponent implements OnInit{
   title = 'angular-assessment';
-  categories: Category[]
+  products: Product[]
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.categoryService.getCategories()
+    this.productService.getAllProducts()
       .subscribe(data => {
-        this.categories = data;
+        this.products = data;
       });
   }
-
 }

@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS } from "../../../../node_modules/@angular/common/http";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtInterceptor } from "./jwt.interceptor";
 
 /** Http interceptor providers*/
