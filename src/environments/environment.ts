@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_url: 'https://gdm-interview-api.azurewebsites.net/api/v1',
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI5IiwidW5pcXVlX25hbWUiOiJpbnRlcnZpZXdhcGlAZ2FydG5lci5jb20iLCJlbWFpbCI6ImludGVydmlld2FwaUBnYXJ0bmVyLmNvbSIsIm5iZiI6MTUzMzA2NDIxMSwiZXhwIjoxNTkzMDY0MTUxLCJpYXQiOjE1MzMwNjQyMTF9.GzzfgRDAYBVgmExT2r-Zo_kD6vjNows4WwBe3rSkr48'
 };
 
 /*
