@@ -1,5 +1,5 @@
 <h1>Product List</h1>
-<button mat-stroked-button>Add Product</button>
+<button mat-stroked-button routerLink="/product/add">Add Product</button>
 
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="products" class="mat-elevation-z8">
@@ -20,7 +20,7 @@
                 <button mat-icon-button title="More">
                     <mat-icon aria-label="Add New Product">more_horiz</mat-icon>
                 </button>
-                <button mat-icon-button title="Edit">
+                <button mat-icon-button title="Edit" routerLink="/product/edit/{{p.ProductId}}">
                     <mat-icon aria-label="Edit Product">edit</mat-icon>
                 </button>
             </td>
