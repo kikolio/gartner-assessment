@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { AppRouting } from './app.routing';
 import { CategoryService } from './shared/services/category.service';
 import { httpInterceptorsProviders } from './shared/interceptors';
-import { ProductModule } from './modules/product.module';
+import { ProductModule } from './modules/product/product.module';
 
 
 
@@ -14,6 +15,7 @@ import { ProductModule } from './modules/product.module';
     AppComponent
   ],
   imports: [
+    AppRouting,
     BrowserModule,
     HttpClientModule,
     ProductModule,
