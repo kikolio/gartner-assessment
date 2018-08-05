@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { MatPaginator, MatTableDataSource, MatBottomSheet } from "@angular/material";
+
 import { Product } from "../../product";
 import { ProductService } from "../../product.service";
-import { MatPaginator, MatTableDataSource } from "../../../../../../node_modules/@angular/material";
+import { ProductDetailComponent } from "../detail/product-detail.component";
 
 @Component({
     selector: 'product-list',
@@ -14,14 +16,24 @@ export class ProductListComponent implements OnInit {
     products = new MatTableDataSource<Product>();
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(private productService: ProductService) { }
+    constructor(private productService: ProductService,
+        private bottomSheet: MatBottomSheet) { }
 
     ngOnInit() {
         this.productService.getAllProducts()
             .subscribe(data => {
-                // this.products = new MatTableDataSource<Product>(data);
                 this.products.data = data;
                 this.products.paginator = this.paginator;
+            });
+    }
+
+    openDetailBottomSheet(product: Product): void {
+
+        this.productService.getProductById(product.ProductId)
+            .subscribe(data => {
+                this.bottomSheet.open(ProductDetailComponent, {
+                    data: data
+                 });
             });
     }
 }

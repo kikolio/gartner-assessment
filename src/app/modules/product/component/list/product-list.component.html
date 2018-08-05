@@ -17,7 +17,7 @@
         <ng-container matColumnDef="Actions">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
             <td mat-cell *matCellDef="let p">
-                <button mat-icon-button title="More">
+                <button mat-icon-button title="More" (click)="openDetailBottomSheet(p)">
                     <mat-icon aria-label="Add New Product">more_horiz</mat-icon>
                 </button>
                 <button mat-icon-button title="Edit" routerLink="/product/edit/{{p.ProductId}}">

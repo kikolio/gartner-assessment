@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Detail</h2>
+
+    <div>{{data.Name}}</div>
+    <div>{{data.Description}}</div>
+    <div>{{data.Url}}</div>
+    <div>
+        <h3>Categories</h3>
+        <ul>
+            <li *ngFor="let c of data.Categories">{{c.Name}}</li>
+        </ul>
+    </div>
+
+</div>

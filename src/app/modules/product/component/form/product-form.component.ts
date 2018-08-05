@@ -71,8 +71,11 @@ export class ProductFormComponent implements OnInit {
         }
     }
 
-    compareCategories(a: Category, b: Category) {   
-        return a.CategoryId == b.CategoryId;
+    compareCategories(a: Category, b: Category) {
+        if(b!= null)   
+            return a.CategoryId == b.CategoryId;
+
+        return false;
     }
 
     getIdsFromSelectedCategories() {
