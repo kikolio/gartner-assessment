@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatTableModule, MatButtonModule, MatPaginatorModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { ProductService } from "./product.service";
 import { ProductListComponent } from "./component/list/product-list.component";
@@ -17,6 +18,7 @@ import { ProductFormComponent } from "./component/form/product-form.component";
     imports: [
         BrowserAnimationsModule,
         CommonModule,
+        FormsModule,
         MatButtonModule,
         MatIconModule,
         MatInputModule,
@@ -24,6 +26,7 @@ import { ProductFormComponent } from "./component/form/product-form.component";
         MatTableModule,
         MatPaginatorModule,
         ProductRouting,
+        ReactiveFormsModule,
     ],
     exports: [
         ProductListComponent

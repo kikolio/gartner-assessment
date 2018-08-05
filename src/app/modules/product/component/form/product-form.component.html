@@ -1,21 +1,20 @@
 <h1>{{productId ? 'Edit' : 'Add'}} Product</h1>
 
-<form novalidate (ngSubmit)="saveProduct()">
+<form [formGroup]="productForm" novalidate (ngSubmit)="validateProduct()">
     <mat-form-field>
-        <input matInput placeholder="Name">
+        <input matInput placeholder="Name" formControlName="Name">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Description">
+        <input matInput placeholder="Description" formControlName="Description">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="URL">
+        <input matInput placeholder="URL" formControlName="Url">
     </mat-form-field>
     <mat-form-field>
-        <mat-select placeholder="Categories" multiple>
-            <mat-option *ngFor="let c of categories" [value]="c.CategoryId">{{c.Name}}</mat-option>
+        <mat-select placeholder="Categories" multiple formControlName="Categories" [compareWith]="compareCategories">
+            <mat-option *ngFor="let c of categories" [value]="c">{{c.Name}}</mat-option>
         </mat-select>
     </mat-form-field>
-
     <div class="actions">
         <button type="submit" mat-stroked-button>Save</button>
         <button type="button" mat-stroked-button color="warn" routerLink="/product/list">Cancel</button>
